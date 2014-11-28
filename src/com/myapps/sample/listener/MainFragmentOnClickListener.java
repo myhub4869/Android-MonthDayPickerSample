@@ -1,5 +1,8 @@
 package com.myapps.sample.listener;
 
+import java.util.Calendar;
+
+import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -22,6 +25,15 @@ public class MainFragmentOnClickListener implements OnClickListener {
 		switch ( v.getId() ) {
 			case R.id.showPickerButton01 :{
 				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment();
+				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
+				break;
+			}
+			case R.id.showPickerButton02 :{
+				Calendar	thisDate	= Calendar.getInstance();
+				String		month		= ( String )DateFormat.format( "MM" , thisDate );
+				String		day			= ( String )DateFormat.format( "dd" , thisDate );
+
+				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment( month , day );
 				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
 				break;
 			}

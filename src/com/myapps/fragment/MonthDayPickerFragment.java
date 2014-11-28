@@ -32,8 +32,11 @@ public class MonthDayPickerFragment extends DialogFragment {
 	private					MonthDayPickerOnValueChangeListener	_onValueChangeListener;
 
 	public MonthDayPickerFragment() {
-		this._selectMonth	= "01";
-		this._selectDay		= "01";
+		this( "01" , "01" );
+	}
+	public MonthDayPickerFragment( String month , String day ) {
+		this._selectMonth	= month;
+		this._selectDay		= day;
 	}
 
 	@Override

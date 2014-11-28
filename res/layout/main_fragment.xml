@@ -9,6 +9,12 @@
         android:id="@+id/showPickerButton01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/SHOW_MDPICKER_BTN" />
+        android:text="@string/SHOW_MDPICKER_BTN01" />
+
+    <Button
+        android:id="@+id/showPickerButton02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/SHOW_MDPICKER_BTN02" />
 
 </LinearLayout>

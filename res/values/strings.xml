@@ -6,6 +6,7 @@
     <string name="PICKER_BUTTON_TEXT">決定</string>
     <string name="DISMISS_PICKER_VIEW_BUTTON_TEXT">閉じる</string>
     <string name="SELECT_TODAY_BUTTON_TEXT">今日の日付を選択</string>
-    <string name="SHOW_MDPICKER_BTN">月日を選択</string>
+    <string name="SHOW_MDPICKER_BTN01">月日を選択(01)</string>
+    <string name="SHOW_MDPICKER_BTN02">月日を選択(02)</string>
 
 </resources>

@@ -16,6 +16,7 @@ public class MainFragment extends Fragment {
 
 	private	Context						_context;
 	private	Button						_showMonthDayPickerButtonView01;
+	private	Button						_showMonthDayPickerButtonView02;
 	private	MainFragmentOnClickListener	_onClickListener;
 
 	@Override
@@ -32,8 +33,10 @@ public class MainFragment extends Fragment {
 		Config.DebugLog( "AnniversaryListFragment >>> onCreateView" );
 		View	rootView						= inflater.inflate( R.layout.main_fragment , container , false );
 		this._showMonthDayPickerButtonView01	= ( Button	)rootView.findViewById( R.id.showPickerButton01 );
+		this._showMonthDayPickerButtonView02	= ( Button	)rootView.findViewById( R.id.showPickerButton02 );
 
 		this._showMonthDayPickerButtonView01.setOnClickListener( this._onClickListener );
+		this._showMonthDayPickerButtonView02.setOnClickListener( this._onClickListener );
 
 		return rootView;
 	}
