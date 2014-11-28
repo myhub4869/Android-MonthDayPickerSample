@@ -17,4 +17,10 @@
         android:layout_height="wrap_content"
         android:text="@string/SHOW_MDPICKER_BTN02" />
 
+    <Button
+        android:id="@+id/showPickerButton03"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/SHOW_MDPICKER_BTN03" />
+
 </LinearLayout>

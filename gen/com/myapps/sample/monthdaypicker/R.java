@@ -22,16 +22,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int dayPickerView=0x7f080007;
+        public static final int dayPickerView=0x7f080008;
         public static final int mainFragment=0x7f080000;
-        public static final int monthPickerView=0x7f080006;
-        public static final int pickerDismissButttonView=0x7f080008;
-        public static final int selectDayTextView=0x7f080005;
-        public static final int selectMonthDayButtonView=0x7f080009;
-        public static final int selectMonthTextView=0x7f080004;
+        public static final int monthPickerView=0x7f080007;
+        public static final int pickerDismissButttonView=0x7f080009;
+        public static final int selectDayTextView=0x7f080006;
+        public static final int selectMonthDayButtonView=0x7f08000a;
+        public static final int selectMonthTextView=0x7f080005;
         public static final int showPickerButton01=0x7f080001;
         public static final int showPickerButton02=0x7f080002;
-        public static final int todaySelectButtonView=0x7f080003;
+        public static final int showPickerButton03=0x7f080003;
+        public static final int todaySelectButtonView=0x7f080004;
     }
     public static final class layout {
         public static final int main_activity=0x7f030000;
@@ -46,6 +47,7 @@ public final class R {
         public static final int SELECT_TODAY_BUTTON_TEXT=0x7f060005;
         public static final int SHOW_MDPICKER_BTN01=0x7f060006;
         public static final int SHOW_MDPICKER_BTN02=0x7f060007;
+        public static final int SHOW_MDPICKER_BTN03=0x7f060008;
         public static final int app_name=0x7f060000;
     }
     public static final class style {

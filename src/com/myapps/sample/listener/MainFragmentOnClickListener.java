@@ -24,16 +24,28 @@ public class MainFragmentOnClickListener implements OnClickListener {
 		Config.DebugLog( "MainFragmentOnClickListener >>> onClick" );
 		switch ( v.getId() ) {
 			case R.id.showPickerButton01 :{
+				Config.DebugLog( "MainFragmentOnClickListener >>> onClick >>> showPickerButton01" );
 				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment();
 				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
 				break;
 			}
 			case R.id.showPickerButton02 :{
+				Config.DebugLog( "MainFragmentOnClickListener >>> onClick >>> showPickerButton02" );
 				Calendar	thisDate	= Calendar.getInstance();
 				String		month		= ( String )DateFormat.format( "MM" , thisDate );
 				String		day			= ( String )DateFormat.format( "dd" , thisDate );
 
 				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment( month , day );
+				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
+				break;
+			}
+			case R.id.showPickerButton03 : {
+				Config.DebugLog( "MainFragmentOnClickListener >>> onClick >>> showPickerButton03" );
+				Calendar	thisDate	= Calendar.getInstance();
+				String		month		= ( String )DateFormat.format( "MM" , thisDate );
+				String		day			= ( String )DateFormat.format( "dd" , thisDate );
+
+				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment( month , day , false );
 				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
 				break;
 			}

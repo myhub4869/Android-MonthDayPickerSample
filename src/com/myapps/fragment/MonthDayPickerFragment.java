@@ -28,6 +28,7 @@ public class MonthDayPickerFragment extends DialogFragment {
 	private					Button								_selectMonthDayButton;
 	private					Button								_dissmisDialogButton;
 	private					Button								_todaySelectButton;
+	private					boolean								_todaySelectButtonShowFlag;
 	private					MonthDayPickerOnClickListener		_onClickListener;
 	private					MonthDayPickerOnValueChangeListener	_onValueChangeListener;
 
@@ -35,8 +36,12 @@ public class MonthDayPickerFragment extends DialogFragment {
 		this( "01" , "01" );
 	}
 	public MonthDayPickerFragment( String month , String day ) {
-		this._selectMonth	= month;
-		this._selectDay		= day;
+		this( month , day , true );
+	}
+	public MonthDayPickerFragment( String month , String day , boolean todaySelectButtonShowFlag ) {
+		this._selectMonth				= month;
+		this._selectDay					= day;
+		this._todaySelectButtonShowFlag	= todaySelectButtonShowFlag;
 	}
 
 	@Override
@@ -79,6 +84,11 @@ public class MonthDayPickerFragment extends DialogFragment {
 		this._selectMonthDayButton.setOnClickListener(	this._onClickListener );
 		this._dissmisDialogButton.setOnClickListener(	this._onClickListener );
 		this._todaySelectButton.setOnClickListener(		this._onClickListener );
+
+		if( !this._todaySelectButtonShowFlag ) {
+			Config.DebugLog( "Remove [Today Select Button] From View" );
+			( ( ViewGroup )this._todaySelectButton.getParent() ).removeView( this._todaySelectButton );
+		}
 
 		return rootView;
 	}

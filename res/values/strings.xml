@@ -8,5 +8,6 @@
     <string name="SELECT_TODAY_BUTTON_TEXT">今日の日付を選択</string>
     <string name="SHOW_MDPICKER_BTN01">月日を選択(01)</string>
     <string name="SHOW_MDPICKER_BTN02">月日を選択(02)</string>
+    <string name="SHOW_MDPICKER_BTN03">月日を選択(03)</string>
 
 </resources>
