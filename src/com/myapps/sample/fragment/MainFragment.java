@@ -25,7 +25,7 @@ public class MainFragment extends Fragment {
 		setHasOptionsMenu( true );
 
 		this._context			= this.getActivity();
-		this._onClickListener	= new MainFragmentOnClickListener();
+		this._onClickListener	= new MainFragmentOnClickListener( this );
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {

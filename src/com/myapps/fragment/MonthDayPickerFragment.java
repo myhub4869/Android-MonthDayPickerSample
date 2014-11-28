@@ -31,6 +31,11 @@ public class MonthDayPickerFragment extends DialogFragment {
 	private					MonthDayPickerOnClickListener		_onClickListener;
 	private					MonthDayPickerOnValueChangeListener	_onValueChangeListener;
 
+	public MonthDayPickerFragment() {
+		this._selectMonth	= "01";
+		this._selectDay		= "01";
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Config.DebugLog( "MonthDayPickerFragment >>> onCreate" );
