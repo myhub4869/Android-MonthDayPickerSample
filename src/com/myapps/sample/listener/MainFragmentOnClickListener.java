@@ -11,9 +11,10 @@ import com.myapps.fragment.MonthDayPickerFragment;
 import com.myapps.sample.fragment.MainFragment;
 import com.myapps.sample.monthdaypicker.R;
 
-public class MainFragmentOnClickListener implements OnClickListener {
+public class MainFragmentOnClickListener implements OnClickListener , MonthDayPickerFragment.CallbacksInterface {
 
-	private	MainFragment	_mainFragment;
+	private	MainFragment			_mainFragment;
+	private	MonthDayPickerFragment	_monthDayPickerFragment;
 
 	public MainFragmentOnClickListener( MainFragment mainFragment ) {
 		this._mainFragment = mainFragment;
@@ -25,8 +26,9 @@ public class MainFragmentOnClickListener implements OnClickListener {
 		switch ( v.getId() ) {
 			case R.id.showPickerButton01 :{
 				Config.DebugLog( "MainFragmentOnClickListener >>> onClick >>> showPickerButton01" );
-				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment();
-				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
+				this._monthDayPickerFragment	= new MonthDayPickerFragment();
+				this._monthDayPickerFragment.setCallbacksInterface( this );
+				this._monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
 				break;
 			}
 			case R.id.showPickerButton02 :{
@@ -35,8 +37,9 @@ public class MainFragmentOnClickListener implements OnClickListener {
 				String		month		= ( String )DateFormat.format( "MM" , thisDate );
 				String		day			= ( String )DateFormat.format( "dd" , thisDate );
 
-				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment( month , day );
-				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
+				this._monthDayPickerFragment	= new MonthDayPickerFragment( month , day );
+				this._monthDayPickerFragment.setCallbacksInterface( this );
+				this._monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
 				break;
 			}
 			case R.id.showPickerButton03 : {
@@ -45,11 +48,19 @@ public class MainFragmentOnClickListener implements OnClickListener {
 				String		month		= ( String )DateFormat.format( "MM" , thisDate );
 				String		day			= ( String )DateFormat.format( "dd" , thisDate );
 
-				MonthDayPickerFragment monthDayPickerFragment	= new MonthDayPickerFragment( month , day , false );
-				monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
+				this._monthDayPickerFragment	= new MonthDayPickerFragment( month , day , false );
+				this._monthDayPickerFragment.setCallbacksInterface( this );
+				this._monthDayPickerFragment.show( this._mainFragment.getFragmentManager() ,  MonthDayPickerFragment.SHOW_TAG );
 				break;
 			}
 		}
+	}
+
+	@Override
+	public void dissmissDialog() {
+		Config.DebugLog( "MainFragmentOnClickListener >>> dissmissDialog" );
+		Config.shortToast( this._mainFragment.getContext() ,  String.format( "%s月%s日を選択" , _monthDayPickerFragment.getSelectMonth() , _monthDayPickerFragment.getSelectDay() ) );
+		this._monthDayPickerFragment.dismiss();
 	}
 
 }

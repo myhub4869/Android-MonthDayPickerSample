@@ -17,7 +17,12 @@ import com.myapps.sample.monthdaypicker.R;
 
 public class MonthDayPickerFragment extends DialogFragment {
 
+	public	interface	CallbacksInterface {
+		public void dissmissDialog();
+	};
+
 	public	static	final	String								SHOW_TAG					= "monthDayPickerDialog";
+
 	private					Context								_context;
 	private					String								_selectMonth;
 	private					String								_selectDay;
@@ -31,9 +36,10 @@ public class MonthDayPickerFragment extends DialogFragment {
 	private					boolean								_todaySelectButtonShowFlag;
 	private					MonthDayPickerOnClickListener		_onClickListener;
 	private					MonthDayPickerOnValueChangeListener	_onValueChangeListener;
+	private					CallbacksInterface					_callBacksInterface;
 
 	public MonthDayPickerFragment() {
-		this( "01" , "01" );
+		this( "01" , "01" , true );
 	}
 	public MonthDayPickerFragment( String month , String day ) {
 		this( month , day , true );
@@ -118,8 +124,7 @@ public class MonthDayPickerFragment extends DialogFragment {
 			return;
 		}
 		else {
-			Config.shortToast( this._context , String.format( "%s月%s日を選択しました" , this._selectMonth , this._selectDay ) );
-			this.dismiss();
+			this._callBacksInterface.dissmissDialog();
 		}
 	}
 	public NumberPicker getMonthPickerView() {
@@ -145,5 +150,11 @@ public class MonthDayPickerFragment extends DialogFragment {
 	}
 	public String getSelectDay() {
 		return this._selectDay;
+	}
+	public void setCallbacksInterface( CallbacksInterface callBackInterface ) {
+		this._callBacksInterface = callBackInterface;
+	}
+	public CallbacksInterface getCallbacksInterface() {
+		return this._callBacksInterface;
 	}
 }

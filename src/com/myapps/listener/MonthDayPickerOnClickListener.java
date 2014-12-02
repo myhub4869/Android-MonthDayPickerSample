@@ -22,6 +22,12 @@ public class MonthDayPickerOnClickListener implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		Config.DebugLog( "MonthDayPickerOnClickListener >>> onClick" );
+		if( this._monthDayPickerFragment.getCallbacksInterface() == null ) {
+			Config.DebugLog( "CallbacksInterface is NULL" );
+			this._monthDayPickerFragment.dismiss();
+			return;
+		}
+
 		switch( v.getId() ) {
 			case R.id.selectMonthDayButtonView : {
 				Config.DebugLog( "MonthDayPickerOnClickListener >>> onClick >>> selectMonthDayButtonView" );
