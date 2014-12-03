@@ -1,5 +1,7 @@
 package com.myapps;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -36,10 +38,37 @@ public class Config {
 		}).show();
 	}
 
+	public static void MethodStartLog() {
+		StringBuffer		buffer	= new StringBuffer();
+		StackTraceElement	stack	= new Throwable().getStackTrace()[ 1 ];
+		Calendar			thisDate	= Calendar.getInstance();
+
+		buffer.append( ( String )android.text.format.DateFormat.format( "YYYY-MM-dd HH:ii:ss" , thisDate ) );
+		buffer.append( "[" );
+		buffer.append( stack.getClassName() + " " + stack.getMethodName() );
+		buffer.append( "]" );
+		buffer.append( " ------------------------------------------------------------------------------------" );
+	}
+	public static void MethodEndLog() {
+		StringBuffer		buffer	= new StringBuffer();
+		StackTraceElement	stack	= new Throwable().getStackTrace()[ 1 ];
+		Calendar			thisDate	= Calendar.getInstance();
+
+		buffer.append( ( String )android.text.format.DateFormat.format( "YYYY-MM-dd HH:ii:ss" , thisDate ) );
+		buffer.append( "[" );
+		buffer.append( stack.getClassName() + " " + stack.getMethodName() );
+		buffer.append( "]" );
+		buffer.append( " ------------------------------------------------------------------------------------" );
+	}
 	public static void DebugLog( String logStr ) {
 		if( isDebug ) {
 			Log.d( APP_TAG , logStr );
 		}
+	}
+	public static void DebugLog( String[] logStrs ) {
+		if( isDebug )
+			for( int i = 0 ; i < logStrs.length ; ++i )
+				Log.d( APP_TAG ,logStrs[ i ] );
 	}
 	public static void ErrorLog( String logStr ) {
 		if( isDebug ) {
