@@ -11,7 +11,7 @@ import com.myapps.sample.monthdaypicker.R;
 
 public class MainActivity extends FragmentActivity {
 
-	private	Context				_context;
+	private	Context	_context;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -20,7 +20,7 @@ public class MainActivity extends FragmentActivity {
 
 		setContentView(R.layout.main_activity);
 
-		this._context									= this;
+		this._context	= this;
 
 		getFragmentManager().beginTransaction().replace( R.id.mainFragment, new MainFragment() ).commit();
 	}

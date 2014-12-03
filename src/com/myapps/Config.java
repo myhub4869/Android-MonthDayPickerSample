@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 
 public class Config {
-	public static final boolean isDebug = true;
+	private	static	final	String	errorLine		= "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+	public	static	final	boolean isDebug			= true;
 
-	public static final String	APP_TAG		= "MyApps-SampleProj";
-	public static final String	PREF_NAME	= "SampleProj";
+	public static final String	APP_TAG				= "MyApps-SampleProj";
+	public static final String	PREF_NAME			= "SampleProj";
 
-	public static final String	EMSG_SELECT_DATE		= "不正な日付です。";
+	public static final String	EMSG_SELECT_DATE	= "不正な日付です。";
 
 	public static void ActivityFinishDialog( final Activity activity ) {
 		AlertDialog.Builder werning = new AlertDialog.Builder( activity );
@@ -42,18 +43,19 @@ public class Config {
 	}
 	public static void ErrorLog( String logStr ) {
 		if( isDebug ) {
-			Log.e( APP_TAG , "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" );
+			Log.e( APP_TAG , Config.errorLine );
 			Log.e( APP_TAG , logStr );
-			Log.e( APP_TAG , "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" );
+			Log.e( APP_TAG , Config.errorLine );
 		}
 	}
 	public static void ErrorLog( Exception e ) {
 		if( isDebug ) {
-			Log.e( APP_TAG , "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" );
+			Log.e( APP_TAG , Config.errorLine );
 			Log.e( APP_TAG , e.getClass().getSimpleName() );
+			Log.e( APP_TAG , Config.errorLine );
 			for( StackTraceElement stElement : e.getStackTrace() )
 				Log.e( APP_TAG , stElement.toString() );
-			Log.e( APP_TAG , "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" );
+			Log.e( APP_TAG , Config.errorLine );
 		}
 	}
 
